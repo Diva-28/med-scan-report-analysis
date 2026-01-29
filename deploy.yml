@@ -1,0 +1,18 @@
+name: Deploy to Hugging Face Spaces
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Push to HF Spaces
+        uses: huggingface/huggingface-push-action@main
+        with:
+          spaces-token: ${{ secrets.HF_TOKEN }}
+          space-id: "your-username/brain-tumor-detector"  # Replace with your space name
+          commit-message: "Update deployment"

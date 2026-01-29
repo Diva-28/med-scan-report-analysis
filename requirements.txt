@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+gradio
+pillow>=10.0.0    # for image processing
+numpy>=1.24.0     # for numerical operations
+opencv-python     # for advanced image analysis
+# Add your deep learning framework here if using a real model (torch/tensorflow/etc)

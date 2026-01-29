@@ -1,0 +1,4 @@
+# This file tells Hugging Face Spaces what kind of app this is
+sdk: gradio
+sdk_version: 3.50.2
+app_file: app.py

@@ -1,0 +1,13 @@
+Tumor Analysis Report
+====================
+Has Tumor: True
+Tumor Type: Glioma
+Size: 1.2 cm
+Location: Right occipital lobe
+Confidence: 0.9
+
+Analysis Details:
+Anomalous Regions: 2
+Edge Complexity: 151
+Tumor Score: 1
+Region Intensities: 220.39, 158.87, 210.12, 176.93, 134.04, 160.1, 176.74, 124.37, 171.66
