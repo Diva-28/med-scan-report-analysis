@@ -1,0 +1,2 @@
+Upload scan image,Analysis,Download Report,timestamp
+.gradio\flagged\Upload scan image\f137963a69e63110c7e2\brain2.jpg,"{""has_tumor"": false, ""tumor_type"": ""Not a medical scan"", ""size"": ""N/A"", ""location"": ""N/A"", ""confidence"": 0, ""analysis_details"": {""message"": ""Color image detected""}}",.gradio\flagged\Download Report\59e0d264cd8d89c9cce5\scan_report_20260305_192520.pdf,2026-03-05 19:25:40.555600

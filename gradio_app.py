@@ -198,46 +198,18 @@ def analyze_and_report(file):
         return {"error": f"Failed to generate PDF report: {str(e)}"}, None
 
 
-iface = gr.Interface(
-    fn=analyze,
-    inputs=gr.File(label="Upload scan image"),
-    outputs=gr.JSON(label="Analysis"),
-    title="Scan Analysis Chatbot",
-    description="Upload a scan image to get analysis from the model (re-uses analyze_scan from main.py)."
-)
-
-# Expose a top-level variable named `demo` so hosting platforms (Gradio Spaces, Hugging Face Spaces,
-# etc.) can auto-detect and run the interface when this module is imported. Keep `iface` for local
-# launches and compatibility.
-demo = iface
-
-iface_with_report = gr.Interface(
+# Simple Interface (No QR Verification)
+demo = gr.Interface(
     fn=analyze_and_report,
     inputs=gr.File(label="Upload scan image"),
     outputs=[gr.JSON(label="Analysis"), gr.File(label="Download Report")],
-    title="Scan Analysis Chatbot with Report",
-    description="Upload a scan image to get analysis and an auto-generated PDF report."
+    title="AI Brain Tumor Analysis System",
+    description="Upload a brain MRI scan to get an AI-powered analysis of tumor type, size, and location, along with an auto-generated PDF report.",
+    flagging_mode="never"
 )
 
-iface_secure = gr.Interface(
-    fn=analyze_and_report_with_verification,
-    inputs=gr.File(label="Upload scan image"),
-    outputs=[
-        gr.File(label="📄 Download Scan Report"),
-        gr.File(label="💊 Download Prescription"),
-        gr.Image(label="🔐 QR Code", type="pil"),
-        gr.Textbox(label="Status", lines=3)
-    ],
-    title="🔐 Secure AI Brain Scan Analysis with QR Verification",
-    description="Upload a brain scan image. You will receive a QR code to scan for verification before secure PDFs are generated.",
-)
 
-# Create a tabbed interface with both endpoints
-demo = gr.TabbedInterface(
-    [iface_secure, iface_with_report],
-    ["Secure (QR Verified)", "Quick Analysis"],
-    title="AI Medical Scan Assistant"
-)
+
 
 
 if __name__ == "__main__":
